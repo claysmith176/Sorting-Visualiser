@@ -138,6 +138,31 @@ class Sort implements Runnable {
         }
     }
 
+    public void shellSort(int min, int max, int gap) {
+        while (gap >0) {
+            for (int i = gap; i <= max; i++) {
+                int index = i;
+                System.out.println(gap);
+                pointers[0] = index;
+                pointers[1] = index - gap;
+                sleep(10);
+                while (index - gap >= min && numbers[index] < numbers[index-gap]) {
+                    pointers[0] = index;
+                    pointers[1] = index - gap;
+                    sleep(20);
+                    int temp = numbers[index];
+                    numbers[index] = numbers[index - gap];
+                    numbers[index - gap] = temp;
+                    index = index - gap;
+                    if (index < 0) {
+                        break;
+                    }
+                }
+            }
+            gap /= 2;
+        }
+    }
+
     public void timSort() {
         final int run = 32;
         int index = 31;
@@ -146,8 +171,6 @@ class Sort implements Runnable {
             index = i;
         }
         insertionSort(index+1, numbers.length-1);
-
-
 
         //merge
         for (int size = run; size < numbers.length; size = 2 * size) {
@@ -223,6 +246,9 @@ class Sort implements Runnable {
                 break;
             case "Insertion Sort":
                 insertionSort(0,numbers.length-1);
+                break;
+            case "Shell Sort":
+                shellSort(0, numbers.length-1, 20);
                 break;
             case "Tim Sort":
                 timSort();
