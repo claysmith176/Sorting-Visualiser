@@ -13,7 +13,7 @@ public class panel extends JPanel {
     int[] pointers = new int[]{-1,-1};
     int[] completed = new int[NUMBER_OF_ITEMS];
     int[] alreadySorted = new int[NUMBER_OF_ITEMS];
-    JComboBox sortType = new JComboBox(new String[]{"Merge Sort", "Bubble Sort", "Selection Sort", "Quick Sort", "Insertion Sort", "Tim Sort"});
+    JComboBox sortType = new JComboBox(new String[]{"Merge Sort", "Bubble Sort", "Selection Sort", "Quick Sort", "Insertion Sort", "Shell Sort", "Tim Sort"});
     JButton startSort = new JButton("Sort");
     JButton reset = new JButton("Reset");
     Thread sortThread;
